@@ -5,10 +5,13 @@ public class BMI {
     private double height;
     private double weight;
     private double BMIIndex;
+    final double weightconv = 0.45359237;
+    final double heightconv = 0.0254;
 
     public BMI (double height, double weight){
         this.height = height;
         this.weight = weight;
+        
     }
 
     public double getHeight()
@@ -23,8 +26,8 @@ public class BMI {
     
     public double getBMI()
     {
-        double weightKilos = weight* 0.45359237;
-        double heightMeters = height * 0.0254;
+        double weightKilos = weight* this.weightconv;
+        double heightMeters = height * this.heightconv;
         this.BMIIndex = weightKilos / Math.pow(heightMeters, 2);
         return this.BMIIndex;
     }
